@@ -29,26 +29,40 @@ This project demonstrates a complete data engineering pipeline for a telecom com
 telecom-cdr-analytics-platform/
 │
 ├── notebooks/
-│   ├── CDR_Analytics_Wipro.ipynb         # Data Generation + Load
-│   ├── CDR_Advanced_SQL.ipynb            # 5 Advanced SQL Queries
-│   ├── CDR_ETL_Pipeline.ipynb            # ETL STG → FACT_CDR
-│   ├── CDR_Spark_Pipeline.ipynb          # Spark Batch + Streaming
-│   ├── CDR_Snowflake_Optimization.ipynb  # Clustering + Time Travel + JSON
-│   ├── CDR_Security_RBAC.ipynb           # RBAC + Masking + Governance
-│   └── CDR_Performance_Tuning.ipynb      # Secure Views + Optimization
+│   ├── 1_CDR_Analytics_Wipro.ipynb         # Data Generation + Load to Snowflake
+│   ├── 2_CDR_Advanced_SQL.ipynb            # 5 Advanced SQL Queries
+│   ├── 3_CDR_ETL_Pipeline.ipynb            # ETL STG_CDR → FACT_CDR
+│   ├── 4_CDR_Spark_Pipeline.ipynb          # Spark Batch + Streaming
+│   ├── 5_CDR_Snowflake_Optimization.ipynb  # Clustering + Time Travel + JSON
+│   ├── 6_CDR_Security_RBAC.ipynb           # RBAC + Masking + Governance
+│   ├── 7_CDR_Performance_Tuning.ipynb      # Secure Views + Query Optimization
+│   └── README.md
 │
 ├── sql/
-│   └── snowflake_queries.sql             # Complete SQL (8 sections)
+│   ├── snowflake_queries.sql               # Complete SQL Scripts (8 sections)
+│   └── README.md
 │
 ├── dashboard/
-│   └── dashboard.png                     # Tableau Dashboard screenshot
+│   ├── 1_Monthly_Revenue_Visualization.png
+│   ├── 2_Call_Type_Revenue_Visualization.png
+│   ├── 3_Network_Performance_Visualization.png
+│   ├── 4_Fraud_Analysis_Visualization.png
+│   ├── 5_Cell_Tower_Performance_Visualization.png
+│   ├── 6_Network_Distribution_Visualization.png
+│   ├── 7_Monthly_Calls_Visualization.png
+│   ├── CDR_Analytics_Dashboard.png         # Complete dashboard screenshot
+│   ├── Telecom_CDR_Analytics_Dashboard.twbx # Tableau workbook file
+│   ├── cdr_data.csv                        # Exported Snowflake data
+│   └── README.md
 │
 ├── architecture/
-│   ├── architecture_diagram.png          # Architecture diagram
-│   └── CDR_Architecture_Diagram.drawio   # Editable Draw.io file
+│   ├── CDR_Architecture Diagram.drawio     # Editable Draw.io source file
+│   ├── CDR_Architecture Diagram.drawio.png # Architecture diagram image
+│   └── README.md
 │
-└── presentation/
-    └── Telecom_CDR_Analytics_Wipro.pptx  # Final PPT (10 slides)
+├── CDR_Presentation.pptx                   # Final PPT Presentation (10 slides)
+├── LICENSE                                 # MIT License
+└── README.md
 ```
 
 ---
@@ -57,70 +71,109 @@ telecom-cdr-analytics-platform/
 
 ```
 Python Generator → STG_CDR → ETL Pipeline → FACT_CDR → Analytics Views → Tableau
-                                ↓
-                         Apache Spark
-                    (Batch + Streaming)
+                                   ↓
+                            Apache Spark
+                       (Batch + Streaming)
 ```
+
+---
+
+## 📓 Notebooks
+
+| # | Notebook | Description |
+|---|---|---|
+| 1 | 1_CDR_Analytics_Wipro.ipynb | Generates 50,000 realistic Indian telecom CDR records and loads to Snowflake STG_CDR |
+| 2 | 2_CDR_Advanced_SQL.ipynb | 5 advanced SQL queries using CTEs, Window Functions, Fraud Detection, Network Analysis |
+| 3 | 3_CDR_ETL_Pipeline.ipynb | ETL pipeline transforming raw STG_CDR data into FACT_CDR with dimension key mapping |
+| 4 | 4_CDR_Spark_Pipeline.ipynb | Apache Spark batch processing and real-time streaming simulation |
+| 5 | 5_CDR_Snowflake_Optimization.ipynb | Clustering Keys, Time Travel (7 days), Semi-Structured JSON |
+| 6 | 6_CDR_Security_RBAC.ipynb | RBAC roles, Data Masking, Row Access Policy, Audit Logging |
+| 7 | 7_CDR_Performance_Tuning.ipynb | Secure Views and query optimization |
+
+---
+
+## 📊 Dashboard
+
+Built with **Tableau Public** using exported Snowflake data.
+
+| # | Visualization | Description |
+|---|---|---|
+| 1 | 1_Monthly_Revenue_Visualization.png | Line chart — revenue trend Jan–Dec 2024 |
+| 2 | 2_Call_Type_Revenue_Visualization.png | Bar chart — VOICE/SMS/DATA/VIDEO revenue |
+| 3 | 3_Network_Performance_Visualization.png | Dropped calls by 2G/3G/4G/5G network |
+| 4 | 4_Fraud_Analysis_Visualization.png | Stacked bar — fraud calls by month |
+| 5 | 5_Cell_Tower_Performance_Visualization.png | Revenue across 5 cell towers |
+| 6 | 6_Network_Distribution_Visualization.png | Pie chart — call distribution by network |
+| 7 | 7_Monthly_Calls_Visualization.png | Stacked bar — calls by month and call type |
+| - | CDR_Analytics_Dashboard.png | Complete combined dashboard screenshot |
+
+---
+
+## 🗄️ SQL Scripts
+
+`sql/snowflake_queries.sql` contains 8 sections:
+
+| Section | Content |
+|---|---|
+| 1 | Database Setup (Schemas, Warehouses) |
+| 2 | Dimension Tables |
+| 3 | Fact Table (FACT_CDR, STG_CDR) |
+| 4 | Seed Data |
+| 5 | Advanced SQL Queries (CTE, Window Functions) |
+| 6 | Snowflake Optimization (Clustering, Time Travel, JSON) |
+| 7 | Security (RBAC, Masking, Row Access Policy) |
+| 8 | Performance Tuning (Secure Views) |
 
 ---
 
 ## ✅ Features Implemented
 
-### 1. Data Warehouse Design
-- Star Schema with FACT_CDR + 5 Dimension Tables
+### Data Warehouse Design
+- Star Schema — FACT_CDR + 5 Dimension Tables
 - STAGING, DWH, ANALYTICS, STREAMING schemas
-- 3 Snowflake Warehouses (INGEST, TRANSFORM, REPORTING)
+- 3 Snowflake Warehouses (INGEST_WH, TRANSFORM_WH, REPORTING_WH)
 
-### 2. Data Generation
+### Data Generation
 - 50,000 realistic Indian telecom CDR records
-- 500 unique subscribers with Indian phone numbers
-- 5 cell towers (Bhubaneswar, Cuttack, Puri, Mumbai, Delhi)
-- Realistic traffic patterns with peak hours
-- Jan 1 — Dec 31, 2024
+- 500 unique subscribers with Indian phone numbers (91XX prefix)
+- 5 cell towers — Bhubaneswar, Cuttack, Puri, Mumbai, Delhi
+- Realistic peak hour traffic patterns
+- Full year 2024 (Jan 1 — Dec 31)
 
-### 3. Advanced SQL Queries
-- Monthly Revenue Trend (CTE + LAG Window Function)
-- Customer Ranking (RANK + NTILE — PLATINUM/GOLD/SILVER/BRONZE)
-- Fraud Detection (Rolling 7-Day Average)
-- Network Performance Analysis (RANK with PARTITION BY)
-- Cell Tower Performance (Revenue + Drop Rate Ranking)
+### Advanced SQL Queries
+- Monthly Revenue Trend — CTE + LAG() Window Function
+- Customer Ranking — RANK() + NTILE() tiers (PLATINUM/GOLD/SILVER/BRONZE)
+- Fraud Detection — Rolling 7-Day Average
+- Network Performance — RANK() with PARTITION BY
+- Cell Tower Performance — Revenue + Drop Rate Ranking
 
-### 4. ETL Pipeline
+### ETL Pipeline
 - Extract: 50,000 records from STG_CDR
-- Transform: Dimension key mapping (4 lookup tables)
-- Load: Batch insert 5,000 records at a time
-- Validate: 0 records dropped, 100% data integrity
+- Transform: Dimension key mapping across 4 lookup tables
+- Load: Batch insert (5,000 records per batch)
+- Validate: 0 records dropped — 100% data integrity
 
-### 5. Apache Spark
+### Apache Spark
 - Batch Processing: Revenue, fraud, network aggregations
 - Streaming Simulation: 500ms micro-batches, 10 iterations
 - PySpark 4.0 DataFrame API
 
-### 6. Snowflake Optimization
-- Clustering Keys on FACT_CDR (DATE_KEY) and STG_CDR (CALL_TYPE)
-- Time Travel: 7-day retention, delete and recover demo
-- Semi-Structured JSON: CDR_JSON VARIANT table
+### Snowflake Optimization
+- Clustering Keys — FACT_CDR (DATE_KEY), STG_CDR (CALL_TYPE)
+- Time Travel — 7-day retention, delete and recover demo (138 records)
+- Semi-Structured JSON — CDR_JSON VARIANT table with PARSE_JSON()
 
-### 7. Security & Governance
-- RBAC: CDR_ADMIN / CDR_ANALYST / CDR_VIEWER roles
-- Data Masking: Phone numbers and charge amounts
-- Row Access Policy: Network type based filtering
-- Data Classification Tags: CONFIDENTIAL / RESTRICTED
-- Audit Logging: 6 events tracked
+### Security & Governance
+- RBAC — CDR_ADMIN / CDR_ANALYST / CDR_VIEWER roles
+- Data Masking — Phone numbers (91XX********XX) and charge amounts
+- Row Access Policy — Network type based row filtering
+- Data Classification Tags — CONFIDENTIAL / RESTRICTED
+- Audit Logging — 6 events tracked in AUDIT_LOG table
 
-### 8. Performance Tuning
+### Performance Tuning
 - VW_MONTHLY_REVENUE (Secure View)
 - VW_CUSTOMER_SUMMARY (Secure View)
 - VW_NETWORK_PERFORMANCE (Secure View)
-
-### 9. Tableau Dashboard
-- Monthly Revenue Trend (Line Chart)
-- Call Type Revenue (Bar Chart)
-- Network Performance (Bar Chart)
-- Fraud Analysis (Stacked Bar)
-- Cell Tower Performance (Bar Chart)
-- Network Distribution (Pie Chart)
-- Monthly Calls (Stacked Bar)
 
 ---
 
@@ -134,35 +187,9 @@ Python Generator → STG_CDR → ETL Pipeline → FACT_CDR → Analytics Views �
 | Total Revenue | ₹59,405.55 |
 | Fraud Rate | 0.5% (250 records) |
 | Roaming Rate | 2% |
-| Average Drop Rate | 14-15% |
+| Average Drop Rate | 14–15% |
 | ETL Data Loss | 0% |
-
----
-
-## 🗄️ Data Model
-
-### FACT_CDR (50,000 rows)
-| Column | Type | Description |
-|---|---|---|
-| CALL_ID | VARCHAR | Unique call identifier |
-| DATE_KEY | NUMBER | FK to DIM_DATE |
-| CALLER_KEY | NUMBER | FK to DIM_SUBSCRIBER |
-| CALLEE_KEY | NUMBER | FK to DIM_SUBSCRIBER |
-| CELL_KEY | NUMBER | FK to DIM_CELL_TOWER |
-| CALL_TYPE_KEY | NUMBER | FK to DIM_CALL_TYPE |
-| DURATION_SECS | NUMBER | Call duration |
-| CHARGE_AMOUNT | NUMBER | Billing amount |
-| IS_FRAUD | BOOLEAN | Fraud flag |
-| IS_ROAMING | BOOLEAN | Roaming flag |
-
-### Dimension Tables
-| Table | Rows | Description |
-|---|---|---|
-| DIM_DATE | 366 | Full year 2024 |
-| DIM_SUBSCRIBER | 500 | All unique callers |
-| DIM_CELL_TOWER | 5 | Network towers |
-| DIM_CALL_TYPE | 4 | VOICE/SMS/DATA/VIDEO |
-| DIM_ZONE | 5 | Geographic zones |
+| ETL Runtime | 52 seconds |
 
 ---
 
@@ -170,12 +197,12 @@ Python Generator → STG_CDR → ETL Pipeline → FACT_CDR → Analytics Views �
 
 1. Open any notebook in **Google Colab**
 2. Run **Cell 1** to install dependencies
-3. Snowflake connection is automatic
-4. Run cells sequentially
+3. Snowflake connection is pre-configured
+4. Run cells sequentially from top to bottom
 
 ### Prerequisites
-- Snowflake account
 - Google account (for Colab)
+- Snowflake account
 - Python 3.12+
 
 ---
