@@ -60,7 +60,8 @@ telecom-cdr-analytics-platform/
 │   ├── CDR_Architecture Diagram.drawio.png # Architecture diagram image
 │   └── README.md
 │
-├── CDR_Presentation.pptx                   # Final PPT Presentation (10 slides)
+├── Presentation/
+|   ├──CDR_Presentation.pptx                # Final PPT Presentation (10 slides)
 ├── LICENSE                                 # MIT License
 └── README.md
 ```
