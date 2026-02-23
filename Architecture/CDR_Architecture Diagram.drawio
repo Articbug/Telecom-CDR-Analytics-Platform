@@ -1,0 +1,145 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="Tf_Nf9gfmTXvAcvdBoNY">
+    <mxGraphModel dx="1209" dy="766" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="light-dark(#FFFFFF,#000000)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;fontColor=#000000;" value="TELECOM CDR ANALYTICS PLATFORM - ARCHITECTURE" vertex="1">
+          <mxGeometry height="40" width="800" x="174" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;fillColor=#0050ef;strokeColor=#001DBC;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="📊 DATA SOURCE" vertex="1">
+          <mxGeometry height="40" width="160" x="166" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;fillColor=#dae8fc;strokeColor=#0050ef;fontSize=10;" value="Python CDR Generator&#xa;50,000 Records&#xa;500 Indian Subscribers&#xa;Jan - Dec 2024" vertex="1">
+          <mxGeometry height="70" width="160" x="166" y="184" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0050ef;strokeWidth=2;" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=1;fillColor=#d79b00;strokeColor=#a05000;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="❄️ STAGING LAYER" vertex="1">
+          <mxGeometry height="40" width="160" x="386" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;fillColor=#fff2cc;strokeColor=#d79b00;fontSize=10;" value="Snowflake STG_CDR&#xa;Raw CDR Records&#xa;50,000 Rows&#xa;STAGING Schema" vertex="1">
+          <mxGeometry height="70" width="160" x="386" y="184" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d79b00;strokeWidth=2;" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;fillColor=#006600;strokeColor=#004400;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="🔄 ETL PIPELINE" vertex="1">
+          <mxGeometry height="40" width="160" x="606" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;fillColor=#d5e8d4;strokeColor=#006600;fontSize=10;" value="Python ETL&#xa;Extract Transform Load&#xa;Dimension Key Mapping&#xa;0% Data Loss" vertex="1">
+          <mxGeometry height="70" width="160" x="606" y="184" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#006600;strokeWidth=2;" target="10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="813" y="219" />
+              <mxPoint x="813" y="219" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" parent="1" style="rounded=1;fillColor=#990000;strokeColor=#660000;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="🏭 DWH LAYER" vertex="1">
+          <mxGeometry height="40" width="160" x="826" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;fillColor=#f8cecc;strokeColor=#990000;fontSize=10;" value="FACT_CDR (50K rows)&#xa;DIM_DATE (366)&#xa;DIM_SUBSCRIBER (500)&#xa;DIM_CELL_TOWER (5)&#xa;DIM_CALL_TYPE (4)" vertex="1">
+          <mxGeometry height="80" width="160" x="826" y="184" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;fillColor=#6600cc;strokeColor=#440088;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="⚡ APACHE SPARK" vertex="1">
+          <mxGeometry height="40" width="160" x="166" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=1;fillColor=#e1d5e7;strokeColor=#6600cc;fontSize=10;" value="Batch Processing&#xa;Streaming Simulation&#xa;Real-time Analytics&#xa;PySpark 4.0" vertex="1">
+          <mxGeometry height="70" width="160" x="166" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=1;fillColor=#d79b00;strokeColor=#a05000;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="❄️ SNOWFLAKE OPT." vertex="1">
+          <mxGeometry height="40" width="160" x="386" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rounded=1;fillColor=#fff2cc;strokeColor=#d79b00;fontSize=10;" value="Clustering Keys&#xa;Time Travel (7 days)&#xa;Semi-Structured JSON&#xa;VARIANT Column" vertex="1">
+          <mxGeometry height="70" width="160" x="386" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=1;fillColor=#990000;strokeColor=#660000;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="🔒 SECURITY" vertex="1">
+          <mxGeometry height="40" width="160" x="606" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=1;fillColor=#f8cecc;strokeColor=#990000;fontSize=10;" value="RBAC (3 Roles)&#xa;Data Masking&#xa;Row Access Policy&#xa;Audit Logging&#xa;Data Tags" vertex="1">
+          <mxGeometry height="80" width="160" x="606" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=1;fillColor=#006600;strokeColor=#004400;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="🚀 PERFORMANCE" vertex="1">
+          <mxGeometry height="40" width="160" x="826" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="rounded=1;fillColor=#d5e8d4;strokeColor=#006600;fontSize=10;" value="Secure Views (3)&#xa;Advanced SQL&#xa;CTEs + Window Fns&#xa;Query Optimization" vertex="1">
+          <mxGeometry height="70" width="160" x="826" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="rounded=1;fillColor=#0050ef;strokeColor=#001DBC;fontSize=11;fontStyle=1;fontColor=#ffffff;" value="📈 ANALYTICS LAYER" vertex="1">
+          <mxGeometry height="40" width="160" x="386" y="574" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="rounded=1;fillColor=#dae8fc;strokeColor=#0050ef;fontSize=10;" value="VW_MONTHLY_REVENUE&#xa;VW_CUSTOMER_SUMMARY&#xa;VW_NETWORK_PERF&#xa;ANALYTICS Schema" vertex="1">
+          <mxGeometry height="70" width="160" x="386" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="rounded=1;fillColor=light-dark(#9933FF,#B266FF);strokeColor=light-dark(#005700,#7F00FF);fontSize=11;fontStyle=1;fontColor=#ffffff;fillStyle=solid;" value="📊 TABLEAU DASHBOARD" vertex="1">
+          <mxGeometry height="40" width="160" x="606" y="574" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="rounded=1;fontSize=10;fillColor=light-dark(#6A00FF,#260D3B);fontColor=light-dark(#FFFFFF,#FFFFFF);strokeColor=light-dark(#3700CC,#9933FF);" value="7 Interactive Charts&#xa;Monthly Revenue Trend&#xa;Fraud Analysis&#xa;Network Performance" vertex="1">
+          <mxGeometry height="70" width="160" x="610" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6600cc;strokeWidth=2;exitX=0.5;exitY=1;entryX=1.001;entryY=0.571;entryDx=0;entryDy=0;entryPerimeter=0;" target="12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="466" y="309" />
+              <mxPoint x="353" y="309" />
+              <mxPoint x="353" y="342" />
+              <mxPoint x="352" y="342" />
+              <mxPoint x="352" y="444" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d79b00;strokeWidth=2;" target="14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="854" y="279" />
+              <mxPoint x="570" y="279" />
+              <mxPoint x="570" y="439" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a6" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#990000;strokeWidth=2;" target="16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="886" y="296" />
+              <mxPoint x="785" y="296" />
+              <mxPoint x="785" y="444" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a7" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#006600;strokeWidth=2;" target="18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="906" y="313" />
+              <mxPoint x="805" y="313" />
+              <mxPoint x="805" y="439" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a8" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0050ef;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1005" y="224" />
+              <mxPoint x="1005" y="521" />
+              <mxPoint x="326" y="521" />
+              <mxPoint x="326" y="610" />
+              <mxPoint x="325" y="610" />
+              <mxPoint x="325" y="659" />
+            </Array>
+            <mxPoint x="851" y="244.00225806451616" as="sourcePoint" />
+            <mxPoint x="491.0322580645162" y="643.97" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a9" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6600cc;strokeWidth=2;" target="22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yvdZY1N2Jmhn9ViDton_-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="738" width="963" x="110" y="14" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
