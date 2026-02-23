@@ -33,7 +33,7 @@ Telecom CDR Analytics Platform project.
 
 | File | Description |
 |---|---|
-| dashboard.png | Screenshot of complete dashboard |
+| CDR_Analytics_Dashboard.png | Screenshot of complete dashboard |
 | cdr_data.csv | Exported data used for dashboard |
 
 ## How to View
